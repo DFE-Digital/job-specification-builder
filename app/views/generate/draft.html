@@ -1,46 +1,27 @@
 {% extends "layouts/main.html" %}
-
 {% block pageTitle %}
-  Draft job description – {{ serviceName }} Build a job description
+Draft job description – {{ serviceName }} Build a job description
 {% endblock %}
-
 {% block content %}
-
-    <div class="govuk-grid-row">
-
-        <div class="govuk-grid-column-two-thirds">
-  <div class="govuk-inset-text">This is a draft. It may not include the latest changes from your selections. <a href='javascript:location.reload()'>Refresh this page</a>.</div>
-
-            <span class="govuk-caption-xl">Draft job description</span>
-            <h1 class="govuk-heading-xl">
-                {% if data.grade === "G6"%}Lead{% elseif data.grade === "G7"%}Senior{% elseif data.grade === "HEO"%}Junior{% endif%}
-                    {{data.profession}}
-                </h1>
-
-              
-
-                {% if data.profession === "Content designer" and data.grade === "G7"%}
-                  {% include "partials/jd/senior-content-designer.html" %}
-                {% endif %}
-
-                {% if data.content_design_skills %}
-
-                <h2 class="govuk-heading-m">Desirable skills</h2>
-
-                <ul class="govuk-list govuk-list--bullet">
-
-                {% for skill in data.content_design_skills %}
-
-                <li>{{skill}}</li>
-
-                {% endfor %}
-                </ul>
-
-                {% endif %}
-
-
-            </div>
-
-        </div>
-
-    {% endblock %}
+<div class="govuk-grid-row">
+   <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-inset-text">This is a draft. It may not include the latest changes from your selections. <a href='javascript:location.reload()'>Refresh this page</a>.</div>
+      <span class="govuk-caption-xl">Draft job description</span>
+      <h1 class="govuk-heading-xl">
+         {% if data.grade === "G6"%}Lead{% elseif data.grade === "G7"%}Senior{% elseif data.grade === "HEO"%}Junior{% endif%}
+         {{data.profession}}
+      </h1>
+      {% if data.profession === "Content designer" and data.grade === "G7"%}
+      {% include "partials/jd/senior-content-designer.html" %}
+      {% endif %}
+      {% if data.content_design_skills %}
+      <h2 class="govuk-heading-m">Desirable skills</h2>
+      <ul class="govuk-list govuk-list--bullet">
+         {% for skill in data.content_design_skills %}
+         <li>{{skill}}</li>
+         {% endfor %}
+      </ul>
+      {% endif %}
+   </div>
+</div>
+{% endblock %}
