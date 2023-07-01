@@ -1,0 +1,31 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "content_design_skills",
+  fieldset: {
+    legend: {
+      text: "What specific skills are required for this " ~ data.grade  ~ " content design role?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+     
+      value: "Experience of creating content or defining content models in content management systems",
+      text: "Experience of creating content or defining content models in content management systems"
+    },
+    {
+      value: "Experience with prototyping content using the GOV.UK Prototype Kit",
+      text: "Experience with prototyping content using the GOV.UK Prototype Kit"
+    },
+    {
+     
+      value: "Experience of prototyping content using Figma or similar tools",
+      text: "Experience of prototyping content using Figma or similar tools"
+    }
+  ]
+}) }}

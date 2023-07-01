@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Professions – {{ serviceName }} Build a job description
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="/generate/portfolio" method="post">
+
+            {% if data.profession === "Content designer"%}
+
+            {% include "partials/content-design.html" %}
+
+            {% endif %}
+
+               {% if data.profession === "Interaction designer"%}
+
+            {% include "partials/interaction-design.html" %}
+
+            {% endif %}
+
+                {{ govukButton({
+  text: "Continue"
+}) }}
+            </form>
+
+        </div>
+
+
+         <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Preview
+        </h2>
+        
+        <p><a href="/generate/draft" target="_blank" class="govuk-link">View your draft job description</a> in a new tab.</p>
+      </aside>
+
+    </div>
+    </div>
+
+{% endblock %}

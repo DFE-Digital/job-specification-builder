@@ -1,0 +1,21 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "interaction-design-skills",
+  fieldset: {
+    legend: {
+      text: "What specific skills are required for this " ~ data.grade  ~ " interaction design role?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Design systems, components and patterns",
+      text: "Developing common components and contributing to design system, component and pattern libraries"
+    }
+  ]
+}) }}

@@ -5,7 +5,11 @@
     "start": "govuk-prototype-kit start"
   },
   "dependencies": {
+    "@govuk-prototype-kit/common-templates": "1.2.0",
+    "dfe-frontend-alpha": "^0.1.8",
     "govuk-frontend": "^4.6.0",
-    "govuk-prototype-kit": "^13.9.1"
+    "govuk-prototype-kit": "^13.9.1",
+    "marked": "^5.1.0",
+    "nunjucks-markdown": "^2.0.1"
   }
 }

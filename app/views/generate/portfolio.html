@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Portfolio – {{ serviceName }} Build a job description
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/generate/check" method="post">
+
+        {{ govukRadios({
+  name: "portfolio",
+  fieldset: {
+    legend: {
+       text: "What portfolio will the role be in?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "Families",
+      text: "Families"
+    },
+    {
+      value: "Schools",
+      text: "Schools"
+    },
+    {
+      value: "Teacher services",
+      text: "Teacher services"
+    },
+    {
+      value: "Skills",
+      text: "Skills"
+    }    ,
+    {
+      value: "Regions",
+      text: "Regions"
+    }   ,{
+      value: "Fundinf",
+      text: "Funding"
+    }   ,
+    {
+      value: "Infrastructure and Operations",
+      text: "Infrastructure and Operations"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+  text: "Continue"
+}) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Professions – {{ serviceName }} Build a job description
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/generate/grade" method="post">
+
+        {{ govukRadios({
+  name: "profession",
+  fieldset: {
+    legend: {
+      text: "What role are you recruiting for?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "Content designer",
+      text: "Content designer"
+    },
+    {
+      value: "Interaction designer",
+      text: "Interaction designer"
+    },
+    {
+      value: "Service designer",
+      text: "Service designer"
+    },
+    {
+      value: "Other",
+      text: "Other"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
